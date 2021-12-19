@@ -1,0 +1,103 @@
+{
+  "version": "2.0.0",
+  "totalExt": 1,
+  "data": [
+    {
+      "parent_info": {
+        "selector": "#container > section.left_content > article:nth-child(3) > div.gall_listwrap.list > table > tbody",
+        "xpath": "//*[@id=''container'']/section[1]/article[2]/div[2]/table/tbody",
+        "xpathFull": "/html/body/div[2]/div[2]/main/section[1]/article[2]/div[2]/table/tbody",
+        "tag": "tbody",
+        "id": "",
+        "class": "",
+        "index": 4
+      },
+      "item": [
+        {
+          "type": "click",
+          "loop": true,
+          "select_info": {
+            "selector": "#container > section.left_content > article:nth-child(3) > div.gall_listwrap.list > table > tbody > tr:nth-child(|) > td.gall_tit.ub-word > a:nth-child(1)",
+            "xpath": "//*[@id=''container'']/section[1]/article[2]/div[2]/table/tbody/tr[|]/td[2]/a[1]",
+            "xpathFull": "/html/body/div[2]/div[2]/main/section[1]/article[2]/div[2]/table/tbody/tr[|]/td[2]/a[1]",
+            "tag": "a",
+            "id": "",
+            "class": "",
+            "index": 1,
+            "size": 50,
+            "searchKey": "td.gall_tit.ub-word:nth-child(2) > a:nth-child(1)",
+            "startIdx": 2
+          },
+          "click_data": [
+            {
+              "item": [
+                {
+                  "type": "extract",
+                  "loop": false,
+                  "select_info": {
+                    "selector": "#container > section > article:nth-child(3) > div.view_content_wrap > header > div > h3 > span.title_subject",
+                    "xpath": "//*[@id=''container'']/section/article[2]/div[1]/header/div/h3/span[2]",
+                    "xpathFull": "/html/body/div[2]/div[2]/main/section/article[2]/div[1]/header/div/h3/span[2]",
+                    "tag": "span",
+                    "id": "",
+                    "class": "title_subject",
+                    "index": 2,
+                    "size": 1
+                  },
+                  "order": 1,
+                  "columnName": "data1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "page_info": {
+        "parent_info": {
+          "selector": "#container > section.left_content > article:nth-child(3) > div.bottom_paging_wrap > div.bottom_paging_box",
+          "xpath": "//*[@id=''container'']/section[1]/article[2]/div[4]/div[1]",
+          "xpathFull": "/html/body/div[2]/div[2]/main/section[1]/article[2]/div[4]/div[1]",
+          "tag": "div",
+          "id": "",
+          "class": "bottom_paging_box",
+          "index": 1
+        },
+        "select_info": [
+          {
+            "selector": "#container > section.left_content > article:nth-child(3) > div.bottom_paging_wrap > div.bottom_paging_box > em",
+            "xpath": "//*[@id=''container'']/section[1]/article[2]/div[4]/div[1]/em",
+            "xpathFull": "/html/body/div[2]/div[2]/main/section[1]/article[2]/div[4]/div[1]/em",
+            "tag": "em",
+            "id": "",
+            "class": "",
+            "index": 1,
+            "value": "1"
+          },
+          {
+            "selector": "#container > section.left_content > article:nth-child(3) > div.bottom_paging_wrap > div.bottom_paging_box > a:nth-child(2)",
+            "xpath": "//*[@id=''container'']/section[1]/article[2]/div[4]/div[1]/a[1]",
+            "xpathFull": "/html/body/div[2]/div[2]/main/section[1]/article[2]/div[4]/div[1]/a[1]",
+            "tag": "a",
+            "id": "",
+            "class": "",
+            "index": 2,
+            "value": "2"
+          },
+          {
+            "selector": "#container > section.left_content > article:nth-child(3) > div.bottom_paging_wrap > div.bottom_paging_box > a.page_next",
+            "xpath": "//*[@id=''container'']/section[1]/article[2]/div[4]/div[1]/a[15]",
+            "xpathFull": "/html/body/div[2]/div[2]/main/section[1]/article[2]/div[4]/div[1]/a[15]",
+            "tag": "a",
+            "id": "",
+            "class": "page_next",
+            "index": 16,
+            "value": "다음"
+          }
+        ],
+        "type": "button",
+        "start": "1",
+        "end": "20"
+      }
+    }
+  ]
+}
