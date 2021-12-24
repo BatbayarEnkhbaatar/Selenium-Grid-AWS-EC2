@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from tqdm import trange
@@ -8,10 +9,6 @@ import json
 import uuid
 import boto3
 import putintem
-
-dynamodb = boto3.resource("dynamodb", endpoint_url="http://localhost:8000/")
-dynamodbTable = dynamodb.Table("Spiderkim-JobDB")
-
 with open('../saas_dcinside_rule.json', 'r') as f:
     js = json.load(f)
 options = webdriver.ChromeOptions()
@@ -26,10 +23,22 @@ options.add_experimental_option('excludeSwitches', ['enable-automation'])
 options.add_experimental_option('useAutomationExtension', False)
 options.add_argument('--disable-blink-features=AutomationControlled')
 
-url = 'https://gall.dcinside.com/board/lists?id=dcbest'
-driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
-driver.get(url)
-sleep(1)
+# url = 'https://gall.dcinside.com/board/lists?id=dcbest'
+# driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+# driver.get(url)
+# sleep(1)
+
+options = webdriver.ChromeOptions()
+options.add_argument("--headless")
+options.add_argument("--disable-gpu")
+options.add_argument("--no-sandbox")
+options.add_argument("enable-automation")
+options.add_argument("--disable-infobars")
+options.add_argument("--disable-dev-shm-usage")
+
+chrome = DesiredCapabilities.CHROME
+driver = webdriver.Remote(command_executor="http://15.164.226.76:4444", desired_capabilities=chrome)
+
 
 start = int(js['data'][0]['page_info']['start'])
 end = int(js['data'][0]['page_info']['end'])
@@ -77,11 +86,13 @@ task_status = "ongoing"
 task_ids = [task["ID"] for task in tasks]
 task_urls = [link["xpath_link"] for link in tasks ]
 task_rule_data = [rule_data["rule_data"] for rule_data in tasks]
-
-for i in range(length):
+i = 200
+length = 300
+add = length- i
+for i in range(i,length):
     putintem.dyna_input_item(job_id, task_ids[i], task_status, task_rule_data[i], task_urls[i])
     # print("Inserted ", task_ids[i])
-print("Totally", length, "tasks successfully imported to DynamoDB ")
+print("Totally", add, "tasks successfully imported to DynamoDB ")
 
 
 ##  aws dynamodb scan --table-name jobs_database --select "COUNT" --endpoint http://localhost:4566/dynamodb
